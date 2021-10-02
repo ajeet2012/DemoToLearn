@@ -44,7 +44,7 @@ typealias Welcome = [WelcomeElement]
 class ApiCallManager{
     
     
-    class func fetchUniversityListOfIndia(successHandler:@escaping(String)->Void, failureHandler:@escaping(Error)->Void, somethingWentWrong:@escaping()->Void){
+    class func fetchUniversityListOfIndia(successHandler:@escaping(String, Data)->Void, failureHandler:@escaping(Error)->Void, somethingWentWrong:@escaping()->Void){
         
         
         let urlStr = "http://universities.hipolabs.com/search?country=India"
@@ -71,7 +71,7 @@ class ApiCallManager{
             
             if data != nil {
                 
-                successHandler(String(data: data!, encoding: .utf8)!)
+                successHandler(String(data: data!, encoding: .utf8)!, data!)
                 
                 
 //                let decoder = JSONDecoder()
