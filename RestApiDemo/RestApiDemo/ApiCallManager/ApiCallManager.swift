@@ -12,8 +12,6 @@ import Foundation
 
 // MARK: - WelcomeElement
 struct WelcomeElement: Codable {
-    
-    
     let domains: [String]
     let name: String
     let country: Country
@@ -24,12 +22,13 @@ struct WelcomeElement: Codable {
 
     enum CodingKeys: String, CodingKey {
         case domains, name, country
-        case alphaTwoCode
-        case stateProvince
-        case webPages
-        case rawebPages
+        case alphaTwoCode = "alpha_two_code"
+        case stateProvince = "state-province"
+        case webPages = "web_pages"
+        case rawebPages = "raweb_pages"
     }
 }
+
 
 enum AlphaTwoCode: String, Codable {
     case alphaTwoCodeIN = "IN"
@@ -74,31 +73,7 @@ class ApiCallManager{
                 successHandler(String(data: data!, encoding: .utf8)!, data!)
                 
                 
-//                let decoder = JSONDecoder()
-//
-//                do {
-//
-//
-//                    if let json = try? JSONSerialization.jsonObject(with: data!, options: []) {
-//
-//                        print(json)
-//
-//                        let jsonObject:[String:String] = json as! [String : String]
-//                        print(jsonObject)
-//
-//
-//                    }
-//
-//
-//                    let univerSityList = try decoder.decode(Welcome.self, from: data!)
-//
-//                    print("response - \(univerSityList)")
-//
-//                }
-//                catch{
-//
-//                    failureHandler(error)
-//                }
+                
             }
             else{
                 
@@ -109,6 +84,9 @@ class ApiCallManager{
         }
         
         dataTask.resume()
+        
+        
+        
         
         
         

@@ -10,13 +10,18 @@ import UIKit
 class UniversitiesViewController: UIViewController {
 
     
+    @IBOutlet weak var parseButton: UIButton!
     @IBOutlet weak var responseTextView: UITextView!
+    
+    var responseData:Data?
     
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        self.parseButton.isHidden = true
         self.callGetApi()
         
 
@@ -29,9 +34,12 @@ class UniversitiesViewController: UIViewController {
         ApiCallManager.fetchUniversityListOfIndia { (strResponse, data) in
             
             DispatchQueue.main.async {
+                self.parseButton.isHidden = false
                 self.responseTextView.text = strResponse
 
             }
+
+            self.responseData = data
             
             
         } failureHandler: { (error) in
@@ -54,12 +62,13 @@ class UniversitiesViewController: UIViewController {
     
     @IBAction func parseAndDisplayAction(_ sender: Any) {
         
-        let alert  = UIAlertController(title: "Message", message: "We are working on this section", preferredStyle: .alert)
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc:ParseUniversitiesViewController = mainStoryboard.instantiateViewController(identifier: "ParseUniversitiesViewController")
+        vc.responseData = self.responseData
         
-        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
         
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+
         
         
     }
