@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     
     //MARK:- Data object declaration ---
     
-    private var apiCallListArray = ["GET Api call","POST Api call"]
+    private var apiCallListArray = ["GET Api call","POST Api call","Download audio file"]
     
     
     //MARK:- UIViewcontroller lifecycle ---
@@ -76,7 +76,15 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
             
             
         }
+        if indexPath.row == 2 {
+            
         
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc:DownloadAudioFileViewController = mainStoryboard.instantiateViewController(identifier: "DownloadAudioFileViewController")
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            
+        }
         
 
     }

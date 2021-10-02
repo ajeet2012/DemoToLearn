@@ -240,6 +240,104 @@
             </objects>
             <point key="canvasLocation" x="2946" y="48"/>
         </scene>
+        <!--Download Audio File View Controller-->
+        <scene sceneID="DBi-Vt-w25">
+            <objects>
+                <viewController storyboardIdentifier="DownloadAudioFileViewController" id="dsk-vh-uId" customClass="DownloadAudioFileViewController" customModule="RestApiDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cM0-UF-y1p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaZ-7n-wjS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download Audio FIle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djk-gR-iBJ">
+                                        <rect key="frame" x="118" y="56" width="178.5" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mQ-8T-ExV">
+                                        <rect key="frame" x="20" y="51" width="40" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="Vw9-qx-uyY" eventType="touchUpInside" id="BCk-yW-SqE"/>
+                                            <action selector="backButtonAction:" destination="dsk-vh-uId" eventType="touchUpInside" id="xK7-hg-xUw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="4mQ-8T-ExV" firstAttribute="centerY" secondItem="Djk-gR-iBJ" secondAttribute="centerY" id="6Yj-bv-cRR"/>
+                                    <constraint firstItem="4mQ-8T-ExV" firstAttribute="leading" secondItem="gaZ-7n-wjS" secondAttribute="leading" constant="20" id="kn7-Lb-uel"/>
+                                    <constraint firstAttribute="height" constant="100" id="p70-FS-b4B"/>
+                                    <constraint firstAttribute="bottom" secondItem="Djk-gR-iBJ" secondAttribute="bottom" constant="20" id="rQd-mf-u9m"/>
+                                    <constraint firstItem="Djk-gR-iBJ" firstAttribute="centerX" secondItem="gaZ-7n-wjS" secondAttribute="centerX" id="ufh-k7-Vsw"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnm-js-D6J">
+                                <rect key="frame" x="194" y="204" width="26" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3x0-RW-BaQ">
+                                <rect key="frame" x="142" y="285" width="130" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="9LT-t8-0tX"/>
+                                </constraints>
+                                <state key="normal" title="Start Download">
+                                    <color key="titleColor" red="0.94989305734634399" green="0.87866741418838501" blue="0.54522693157196045" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startDownloadButtonAction:" destination="dsk-vh-uId" eventType="touchUpInside" id="L67-tD-NTg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://s3.amazonaws.com/kargopolov/kukushka.mp3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CT-YW-osJ">
+                                <rect key="frame" x="20" y="140" width="374" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pIW-1V-HAk">
+                                <rect key="frame" x="132" y="239" width="150" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="YDd-mH-cs1"/>
+                                </constraints>
+                            </progressView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yp5-AE-mXe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yp5-AE-mXe" firstAttribute="trailing" secondItem="4CT-YW-osJ" secondAttribute="trailing" constant="20" id="09y-fW-dFR"/>
+                            <constraint firstItem="4CT-YW-osJ" firstAttribute="top" secondItem="gaZ-7n-wjS" secondAttribute="bottom" constant="40" id="6A7-TE-C3x"/>
+                            <constraint firstItem="pIW-1V-HAk" firstAttribute="centerX" secondItem="yp5-AE-mXe" secondAttribute="centerX" id="Bau-dB-32e"/>
+                            <constraint firstItem="3x0-RW-BaQ" firstAttribute="top" secondItem="vnm-js-D6J" secondAttribute="bottom" constant="60" id="bRr-7u-gAs"/>
+                            <constraint firstItem="vnm-js-D6J" firstAttribute="top" secondItem="4CT-YW-osJ" secondAttribute="bottom" constant="48" id="baF-UY-kwY"/>
+                            <constraint firstItem="vnm-js-D6J" firstAttribute="centerX" secondItem="yp5-AE-mXe" secondAttribute="centerX" id="gHu-xo-qGs"/>
+                            <constraint firstItem="pIW-1V-HAk" firstAttribute="top" secondItem="vnm-js-D6J" secondAttribute="bottom" constant="14" id="gkO-Iq-zXS"/>
+                            <constraint firstItem="gaZ-7n-wjS" firstAttribute="leading" secondItem="yp5-AE-mXe" secondAttribute="leading" id="hVn-vd-gHj"/>
+                            <constraint firstItem="4CT-YW-osJ" firstAttribute="leading" secondItem="yp5-AE-mXe" secondAttribute="leading" constant="20" id="j09-Rb-iv3"/>
+                            <constraint firstItem="3x0-RW-BaQ" firstAttribute="centerX" secondItem="yp5-AE-mXe" secondAttribute="centerX" id="j8d-Yg-laf"/>
+                            <constraint firstAttribute="trailing" secondItem="gaZ-7n-wjS" secondAttribute="trailing" id="opU-76-Yuv"/>
+                            <constraint firstItem="gaZ-7n-wjS" firstAttribute="top" secondItem="cM0-UF-y1p" secondAttribute="top" id="pw2-eH-bdr"/>
+                            <constraint firstItem="4CT-YW-osJ" firstAttribute="centerX" secondItem="yp5-AE-mXe" secondAttribute="centerX" id="rws-Oj-HWn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressBar" destination="pIW-1V-HAk" id="WKW-LZ-jZt"/>
+                        <outlet property="progressLabel" destination="vnm-js-D6J" id="oyH-q1-8bT"/>
+                        <outlet property="startButton" destination="3x0-RW-BaQ" id="s7H-uq-3W6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9GO-Xu-DYo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2957" y="726"/>
+        </scene>
         <!--Parse Universities View Controller-->
         <scene sceneID="b5a-kY-Ux3">
             <objects>
